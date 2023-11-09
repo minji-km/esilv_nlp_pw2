@@ -2,6 +2,8 @@ import nltk
 import streamlit as st
 from nltk.corpus import treebank
 from nltk.tag import UnigramTagger
+
+nltk.download('punkt')
 nltk.download('treebank')
 
 # Load the tagged sentences for training
