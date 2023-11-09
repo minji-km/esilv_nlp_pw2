@@ -23,19 +23,19 @@ def pos_tagging(sentence):
     return tagged_words
 
 def highlight_tagged_words(tagged_words):
-    # Define colors for different parts of speech
-    pos_colors = {
+    # Define background colors for different parts of speech
+    pos_background_colors = {
         'NN': 'red',
         'VB': 'blue',
         'JJ': 'green',
         # Add more POS tags and colors as needed
     }
 
-    # Create HTML with inline styles for highlighting
+    # Create HTML with inline styles for background color
     html = ""
     for word, pos_tag in tagged_words:
-        color = pos_colors.get(pos_tag[:2], 'black')  # Default to black if not defined
-        html += f'<span style="color:{color};">{word}</span> '
+        background_color = pos_background_colors.get(pos_tag[:2], 'transparent')  # Default to transparent if not defined
+        html += f'<span style="background-color:{background_color}; padding: 2px;">{word}</span> '
 
     return html
 
@@ -48,8 +48,8 @@ if sentence:
     # Perform part-of-speech tagging
     tagged_words = pos_tagging(sentence)
 
-    # Highlight words with colors
+    # Highlight words with background colors
     highlighted_html = highlight_tagged_words(tagged_words)
 
-    # Display the result with highlighted words
+    # Display the result with highlighted words and background colors
     st.markdown(highlighted_html, unsafe_allow_html=True)
