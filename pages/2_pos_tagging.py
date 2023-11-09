@@ -34,7 +34,7 @@ def highlight_tagged_words(tagged_words):
     # Create HTML with inline styles for background color
     html = ""
     for word, pos_tag in tagged_words:
-        print(f"Word: {word}, POS Tag: {pos_tag}")
+        st.write(f"Word: {word}, POS Tag: {pos_tag}")
         background_color = pos_background_colors.get(pos_tag, 'transparent')  # Use full POS tag
         html += f'<span style="background-color:{background_color}; padding: 2px;">{word}</span> '
 
