@@ -23,22 +23,20 @@ def pos_tagging(sentence):
     return tagged_words
 
 def highlight_tagged_words(tagged_words):
-    # Define background colors for different parts of speech
     pos_background_colors = {
-        'NN': 'red',
-        'VB': 'blue',
-        'JJ': 'green',
-        # Add more POS tags and colors as needed
+        'NN': 'lightcoral',
+        'VB': 'lightgreen',
+        'JJ': 'lightskyblue',
+        'RB': 'lightpink',
+        'PR': 'lightgray',
     }
 
-    # Create HTML with inline styles for background color
-    html = ""
+    highlighted_html = ""
     for word, pos_tag in tagged_words:
-        st.write(f"Word: {word}, POS Tag: {pos_tag}")
-        background_color = pos_background_colors.get(pos_tag, 'transparent')  # Use full POS tag
-        html += f'<span style="background-color:{background_color}; padding: 2px;">{word}</span> '
+        background_color = pos_background_colors.get(pos_tag[:2], 'transparent') if pos_tag else 'transparent'
+        highlighted_html += f'<span style="background-color: {background_color};">{word}</span> '
 
-    return html
+    return highlighted_html
 
 st.title('Part-of-Speech Tagging for Sentiment Analysis')
 st.write('Part-of-Speech tagging')
