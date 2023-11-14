@@ -53,9 +53,9 @@ if st.button("Tag and Highlight"):
     st.markdown(highlighted_html, unsafe_allow_html=True)
 
     # Display the legend with colored text
-    st.write("Legend:")
-    st.write(f"- Noun (NN): <span style='color: lightcoral;'>lightcoral</span>")
-    st.write(f"- Verb (VB): <span style='color: lightgreen;'>lightgreen</span>")
-    st.write(f"- Adjective (JJ): <span style='color: lightskyblue;'>lightskyblue</span>")
-    st.write(f"- Adverb (RB): <span style='color: lightpink;'>lightpink</span>")
-    st.write(f"- Pronoun (PR): <span style='color: lightgray;'>lightgray</span>", unsafe_allow_html=True)
+    st.markdown("Legend:")
+    st.markdown("- Noun (NN): <span style='color: lightcoral;'>lightcoral</span>", unsafe_allow_html=True)
+    st.markdown("- Verb (VB): <span style='color: lightgreen;'>lightgreen</span>", unsafe_allow_html=True)
+    st.markdown("- Adjective (JJ): <span style='color: lightskyblue;'>lightskyblue</span>", unsafe_allow_html=True)
+    st.markdown("- Adverb (RB): <span style='color: lightpink;'>lightpink</span>", unsafe_allow_html=True)
+    st.markdown("- Pronoun (PR): <span style='color: lightgray;'>lightgray</span>", unsafe_allow_html=True)
