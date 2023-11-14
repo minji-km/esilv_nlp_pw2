@@ -27,27 +27,27 @@ def highlight_tagged_words(tagged_words):
         'JJ': 'lightskyblue',
         'RB': 'lightpink',
         'PR': 'lightgray',
+        'IN': 'lightyellow',  # Adposition
+        'CC': 'lightorange',  # Conjunction
+        'DT': 'lightpurple',  # Determiner
+        'UH': 'lightcyan',  # Interjection
+        'CD': 'lightmagenta',  # Numeral
+        'RP': 'lightolive',  # Particle
+        'SYM': 'lightbrown',  # Symbol
+        'O': 'lightviolet'  # Other
     }
 
-    pos_full_names = {
-        'NN': 'Nouns',
-        'VB': 'Verbs',
-        'JJ': 'Adjectives',
-        'RB': 'Adverbs',
-        'PR': 'Pronouns',
-    }
-
-    legend_html = ""
     highlighted_html = ""
+    legend_html = ""
     for word, pos_tag in tagged_words:
         background_color = pos_background_colors.get(pos_tag[:2], 'transparent') if pos_tag else 'transparent'
         highlighted_html += f'<span style="background-color: {background_color};">{word}</span> '
-        
-    for pos_tag, color in pos_background_colors.items():
-        full_name = pos_full_names.get(pos_tag, pos_tag)
-        legend_html += f'<span style="background-color: {color}; margin-right: 10px;">{full_name}</span> '
 
-    return legend_html, highlighted_html
+        # Build legend
+        if pos_tag:
+            legend_html += f'{nltk.tag.mapping.map_tag("en-ptb", "universal", pos_tag)} '
+
+    return highlighted_html, legend_html
 
 st.title('Part-of-Speech Tagging for Sentiment Analysis')
 st.write('Part-of-Speech tagging')
@@ -58,9 +58,11 @@ if sentence:
     # Perform part-of-speech tagging
     tagged_words = pos_tagging(sentence)
 
-    # Highlight words with background colors and display legend
-    legend_html, highlighted_html = highlight_tagged_words(tagged_words)
-    st.subheader("Legend")
-    st.markdown(legend_html, unsafe_allow_html=True)
-    st.subheader("Tagged Setence:")
+    # Highlight words with background colors and generate legend
+    highlighted_html, legend_html = highlight_tagged_words(tagged_words)
+    # Display the result with highlighted words and background colors
+    st.subheader("Tagged Sentence:")
     st.markdown(highlighted_html, unsafe_allow_html=True)
+    # Display legend
+    st.subheader("Legend")
+    st.markdown(f"**{legend_html}**")
