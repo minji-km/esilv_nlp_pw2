@@ -37,7 +37,7 @@ def highlight_tagged_words(tagged_words):
         'PR': 'Pronouns',
     }
 
-    legend_html = "Legend: "
+    legend_html = ""
     highlighted_html = ""
     for word, pos_tag in tagged_words:
         background_color = pos_background_colors.get(pos_tag[:2], 'transparent') if pos_tag else 'transparent'
