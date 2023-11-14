@@ -2,7 +2,6 @@ import nltk
 import streamlit as st
 
 nltk.download('punkt')
-# nltk.download('treebank')
 from nltk.tag import UnigramTagger
 
 # Load the tagged sentences for training
@@ -53,10 +52,10 @@ if st.button("Tag and Highlight"):
     # Display the result with highlighted words and background colors
     st.markdown(highlighted_html, unsafe_allow_html=True)
 
-    # Display the legend
+    # Display the legend with colored text
     st.write("Legend:")
-    st.write("- Noun (NN): lightcoral")
-    st.write("- Verb (VB): lightgreen")
-    st.write("- Adjective (JJ): lightskyblue")
-    st.write("- Adverb (RB): lightpink")
-    st.write("- Pronoun (PR): lightgray")
+    st.write(f"- Noun (NN): <span style='color: lightcoral;'>lightcoral</span>")
+    st.write(f"- Verb (VB): <span style='color: lightgreen;'>lightgreen</span>")
+    st.write(f"- Adjective (JJ): <span style='color: lightskyblue;'>lightskyblue</span>")
+    st.write(f"- Adverb (RB): <span style='color: lightpink;'>lightpink</span>")
+    st.write(f"- Pronoun (PR): <span style='color: lightgray;'>lightgray</span>", unsafe_allow_html=True)
