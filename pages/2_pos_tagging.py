@@ -3,6 +3,7 @@ import streamlit as st
 
 nltk.download('punkt')
 nltk.download('treebank')
+nltk.download('universal_tagset')
 
 # Load the tagged sentences for training
 treebank_corpus = nltk.corpus.treebank.tagged_sents()
