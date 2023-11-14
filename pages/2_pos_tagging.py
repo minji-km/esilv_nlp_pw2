@@ -28,12 +28,12 @@ def highlight_tagged_words(tagged_words):
         'RB': 'lightpink',
         'PR': 'lightgray',
         'IN': 'lightyellow',  # Adposition
-        'CC': 'lightorange',  # Conjunction
-        'DT': 'lightpurple',  # Determiner
+        'CC': 'lightcyan',  # Conjunction
+        'DT': 'lightmagenta',  # Determiner
         'UH': 'lightcyan',  # Interjection
-        'CD': 'lightmagenta',  # Numeral
-        'RP': 'lightolive',  # Particle
-        'SYM': 'lightbrown',  # Symbol
+        'CD': 'lightolive',  # Numeral
+        'RP': 'lightbrown',  # Particle
+        'SYM': 'lightorange',  # Symbol
         'O': 'lightviolet'  # Other
     }
 
