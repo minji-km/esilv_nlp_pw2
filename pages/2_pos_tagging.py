@@ -29,6 +29,14 @@ def highlight_tagged_words(tagged_words):
         'PR': 'lightgray',
     }
 
+    pos_full_names = {
+        'NN': 'Nouns',
+        'VB': 'Verbs',
+        'JJ': 'Adjectives',
+        'RB': 'Adverbs',
+        'PR': 'Pronouns',
+    }
+
     legend_html = "Legend: "
     highlighted_html = ""
     for word, pos_tag in tagged_words:
@@ -36,7 +44,8 @@ def highlight_tagged_words(tagged_words):
         highlighted_html += f'<span style="background-color: {background_color};">{word}</span> '
         
     for pos_tag, color in pos_background_colors.items():
-        legend_html += f'<span style="background-color: {color}; margin-right: 10px;">{pos_tag}</span> '
+        full_name = pos_full_names.get(pos_tag, pos_tag)
+        legend_html += f'<span style="background-color: {color}; margin-right: 10px;">{full_name}</span> '
 
     return legend_html, highlighted_html
 
