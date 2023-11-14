@@ -1,5 +1,5 @@
-import nltk
 import streamlit as st
+import nltk
 
 nltk.download('punkt')
 from nltk.tag import UnigramTagger
@@ -31,7 +31,7 @@ def highlight_tagged_words(tagged_words):
     highlighted_html = ""
     for word, pos_tag in tagged_words:
         background_color = pos_background_colors.get(pos_tag[:2], 'transparent') if pos_tag else 'transparent'
-        highlighted_html += f'<span style="background-color: {background_color};">{word}</span> '
+        highlighted_html += f'<span style="background-color: {background_color};">{pos_tag}</span> '
 
     return highlighted_html
 
@@ -52,10 +52,10 @@ if st.button("Tag and Highlight"):
     # Display the result with highlighted words and background colors
     st.markdown(highlighted_html, unsafe_allow_html=True)
 
-    # Display the legend
+    # Display the simplified legend
     st.markdown("Legend:")
-    st.markdown("- Nouns: <span style='color: lightcoral;'>lightcoral</span>", unsafe_allow_html=True)
-    st.markdown("- Verbs: <span style='color: lightgreen;'>lightgreen</span>", unsafe_allow_html=True)
-    st.markdown("- Adjectives: <span style='color: lightskyblue;'>lightskyblue</span>", unsafe_allow_html=True)
-    st.markdown("- Pronouns: <span style='color: lightgray;'>lightgray</span>", unsafe_allow_html=True)
-    st.markdown("- Adverbs: <span style='color: lightpink;'>lightpink</span>", unsafe_allow_html=True)
+    st.markdown("- Nouns", unsafe_allow_html=True)
+    st.markdown("- Verbs", unsafe_allow_html=True)
+    st.markdown("- Adjectives", unsafe_allow_html=True)
+    st.markdown("- Pronouns", unsafe_allow_html=True)
+    st.markdown("- Adverbs", unsafe_allow_html=True)
