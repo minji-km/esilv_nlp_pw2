@@ -53,10 +53,10 @@ def highlight_tagged_words(tagged_words):
         'O': 'Others',
     }
 
-    legend_html = ""
+    legend_html = "Legend: "
     for pos_tag in pos_full_names:
-        legend_html += f'<span style="background-color: {pos_background_colors.get(pos_tag, "transparent")};">' \
-                       f'{pos_full_names[pos_tag]}</span> '
+        color = pos_background_colors.get(pos_tag[:2], 'transparent') if pos_tag in pos_background_colors else 'transparent'
+        legend_html += f'<span style="background-color: {color};">{pos_full_names[pos_tag]}</span> '
 
     highlighted_html = ""
     for word, pos_tag in tagged_words:
