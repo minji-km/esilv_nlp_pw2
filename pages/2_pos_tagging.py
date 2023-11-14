@@ -1,14 +1,12 @@
 import nltk
 import streamlit as st
-from nltk.corpus import treebank
-from nltk.tag import UnigramTagger
 
 nltk.download('punkt')
-nltk.download('treebank')
+# nltk.download('treebank')
+from nltk.tag import UnigramTagger
 
 # Load the tagged sentences for training
-treebank_corpus = treebank.tagged_sents()
-train_sents = treebank_corpus[:3000]
+train_sents = nltk.corpus.treebank.tagged_sents()[:3000]
 
 # Train the UnigramTagger
 tagger = UnigramTagger(train_sents)
@@ -43,7 +41,9 @@ st.write('Part-of-Speech tagging')
 
 # Input text box
 sentence = st.text_area("Enter a sentence:")
-if sentence:
+
+# Button to trigger tagging
+if st.button("Tag and Highlight"):
     # Perform part-of-speech tagging
     tagged_words = pos_tagging(sentence)
 
@@ -52,3 +52,11 @@ if sentence:
 
     # Display the result with highlighted words and background colors
     st.markdown(highlighted_html, unsafe_allow_html=True)
+
+    # Display the legend
+    st.write("Legend:")
+    st.write("- Noun (NN): lightcoral")
+    st.write("- Verb (VB): lightgreen")
+    st.write("- Adjective (JJ): lightskyblue")
+    st.write("- Adverb (RB): lightpink")
+    st.write("- Pronoun (PR): lightgray")
