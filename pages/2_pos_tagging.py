@@ -60,5 +60,7 @@ if sentence:
 
     # Highlight words with background colors and display legend
     legend_html, highlighted_html = highlight_tagged_words(tagged_words)
+    st.subheader("Legend")
     st.markdown(legend_html, unsafe_allow_html=True)
+    st.subheader("Tagged Setence:")
     st.markdown(highlighted_html, unsafe_allow_html=True)
