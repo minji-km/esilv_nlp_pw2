@@ -66,4 +66,4 @@ if sentence:
     st.markdown(highlighted_html, unsafe_allow_html=True)
     # Display legend
     st.subheader("Legend")
-    st.markdown(f"**{legend_html}**")
+    st.markdown(legend_html, unsafe_allow_html=True)
