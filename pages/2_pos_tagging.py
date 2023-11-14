@@ -28,12 +28,12 @@ def highlight_tagged_words(tagged_words):
         'RB': 'lightpink',
         'PR': 'lightgray',
         'IN': 'lightyellow',  # Adposition
-        'CC': 'lightcyan',  # Conjunction
-        'DT': 'lightmagenta',  # Determiner
+        'CC': 'lightorange',  # Conjunction
+        'DT': 'lightpurple',  # Determiner
         'UH': 'lightcyan',  # Interjection
-        'CD': 'lightolive',  # Numeral
-        'RP': 'lightbrown',  # Particle
-        'SYM': 'lightorange',  # Symbol
+        'CD': 'lightmagenta',  # Numeral
+        'RP': 'lightolive',  # Particle
+        'SYM': 'lightbrown',  # Symbol
         'O': 'lightviolet'  # Other
     }
 
@@ -56,7 +56,7 @@ def highlight_tagged_words(tagged_words):
     legend_html = "Legend: "
     for pos_tag in pos_full_names:
         color = pos_background_colors.get(pos_tag[:2], 'transparent') if pos_tag in pos_background_colors else 'transparent'
-        legend_html += f'<span style="background-color: {color};">{pos_full_names[pos_tag]}</span> '
+        legend_html += f'<span style="background-color: {color}; padding: 0px 5px; margin-right: 5px; border-radius: 5px;">{pos_full_names[pos_tag]}</span>'
 
     highlighted_html = ""
     for word, pos_tag in tagged_words:
